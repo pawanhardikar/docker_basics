@@ -57,11 +57,33 @@ If we want the latest version without any specific version, we can choose the im
   - The terminal won't be blocked, but if we want to see the logs that can be used for debugging if the image is running correctly or not, we need the logs command: `docker logs {container_id}`
   - Container ID can be obtained by checking all the active containers in the system (`docker ps`).
   - To stop the container, we can use the command: `docker stop {container_id}`
-
+  - inorder to start the container we can use the command: `docker start {container_id}` This can be done when I want to restart any previous stopped container. Or else we can normally use the command `docker run {image_name}` to start a new container.
+  - Every time we start a container a random name is assigned to it, We can change the name according to our desire using the name flag (For EX: docker run --name Shri_Ganesha -d -p 9000:80 nginx:1.23) 
 ## Port Binding: Why is This Done?
 
 In the above scenarios, we tried to run an image but we won't be able to access it as the application inside the container runs in an isolated Docker network and not in the host network. So we need to expose the container port to the local port. By binding that port to a port in the local machine, we will be able to access it.
 This is done using the command: `docker run -d -p{host_port}:{container_port} {image_name}`
+
+## Registry vs Repository
+
+A registry is a service providing storage for different repositories. Ex. AWS ECR, Docker Hub
+A repository is collection of related images with same name but different versions/tags.
+
+## What is a Dockerfile?
+Dockerfile is a text document that contains commands on how to assemble an image.
+Docker then build an image reading those instructions.
+
+Basic Structure of Dockerfile: 
+	Dockerfiles start from a parent image or the "base image".
+	Dockerfiles "must begin" with a FROM instruction. and end with "CMD" instruction.
+	The CMD is the instruction that is to be exceuted when a Docker container starts.
+	There can only be one "CMD" instruction in a Dockerfile
+	
+	
+
+
+ 
+
 
 ## Things to Explore Later:
 
